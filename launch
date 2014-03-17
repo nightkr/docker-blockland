@@ -1,2 +1,3 @@
+#!/bin/sh
 python2 download.py
 wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated
