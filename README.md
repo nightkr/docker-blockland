@@ -3,7 +3,7 @@ Docker image for Blockland servers
 
 This is an attempt for creating a standard environment for Blockland servers on Linux using Docker.
 
-Since getting Blockland to run flawlessly under it is a notoriously finicky process that nobody really understands, it's better to get it done with once in a reproducible manner.
+Since getting Blockland to run flawlessly under Linux is a notoriously finicky process that nobody really understands, it's better to get it done with once in a reproducible manner.
 
 Usage
 -----
