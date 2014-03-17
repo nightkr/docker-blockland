@@ -19,7 +19,6 @@ def update(manifestPath):
 	print "Processing manifest...",
 	downloadPath = manifest[0].split("\t")[1].strip()
 	files = {}
-	ignoredFiles = open("ignored.txt").readlines(False)
 	for i in manifest[1:]:
 		i = i.strip()[1:].split("\t")
 		digest = ""
