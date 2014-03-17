@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ $1 = bash ]; then
+if [ "$1" = bash ]; then
   exec /bin/bash
-end
+fi
 
 python2 download.py
 wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated $@
