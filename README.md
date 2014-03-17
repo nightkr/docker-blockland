@@ -33,3 +33,8 @@ I don't like docker!
 
 Even if you don't like Docker itself, this should hopefully produce a Dockerfile which can be used as a rough template for creating servers manually.
 
+You're an idiot, why would you run Blockland as root!
+-----------------------------------------------------
+
+It only has privileges inside the Docker container, which is recreated for every restart anyway. Setting up more users when it's already isolated just isn't worth the effort.
+
