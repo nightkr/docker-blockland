@@ -1,5 +1,14 @@
 import sys, subprocess, urllib2, os, hashlib, threading
 
+ignored_prefixes = [
+    "screenshots/",
+    "shaders/",
+    "saves/"
+]
+
+def ignored(path):
+	return any((path.startswith(i) for i in ignored_prefixes))
+
 def update(manifestPath):
 	print "Downloading manifest " + manifestPath + "...",
 	manifestRequest = urllib2.Request(manifestPath, headers={"User-Agent": "blocklandWIN/2.0"})
@@ -10,7 +19,6 @@ def update(manifestPath):
 	print "Processing manifest...",
 	downloadPath = manifest[0].split("\t")[1].strip()
 	files = {}
-	open("ignored.txt", "a") # Make sure it exists
 	ignoredFiles = open("ignored.txt").readlines(False)
 	for i in manifest[1:]:
 		i = i.strip()[1:].split("\t")
@@ -19,7 +27,7 @@ def update(manifestPath):
 			digest = hashlib.sha1()
 			digest.update(open(i[0], "rb").read())
 			digest = digest.hexdigest()
-		if i[0] not in ignoredFiles and digest.lower() != i[1].lower():
+		if not ignored(i[0]) and digest.lower() != i[1].lower():
 			files[i[0]] = i[1]
 	print "DONE"
 
@@ -37,11 +45,3 @@ def update(manifestPath):
 		print "DONE"
 
 update("http://update.blockland.us/latestVersion.php")
-
-open("repositories.txt", "a")
-repositories = open("repositories.txt").readlines(False)
-
-for i in repositories:
-	i = i.strip()
-	if i:
-		update(i)
