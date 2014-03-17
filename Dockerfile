@@ -11,3 +11,6 @@ RUN python2.7 download.py
 ADD launch /opt/blockland/launch
 ENTRYPOINT ["./launch"]
 
+VOLUME ["/opt/blockland/keys", "/opt/blockland/Add-Ons", "/opt/blockland/config"]
+RUN ln -s /opt/blockland/keys/key.dat /opt/blockland/key.dat
+

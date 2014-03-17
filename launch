@@ -4,6 +4,10 @@ if [ "$1" = bash ]; then
   exec /bin/bash
 fi
 
+# Run a Wine to generate it's config files, since that seems to break under xvfb for some reason
+wine echo &> /dev/null
+
+touch keys/key.dat
 python2 download.py
 xvfb-run wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated $@
 
