@@ -1,3 +1,9 @@
 #!/bin/sh
+
+if [ $1 = bash ]; then
+  exec /bin/bash
+end
+
 python2 download.py
-wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated
+wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated $@
+
