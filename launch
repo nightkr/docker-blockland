@@ -9,5 +9,5 @@ wine echo &> /dev/null
 
 touch keys/key.dat
 python2 download.py
-xvfb-run wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated $@
+xvfb-run -a wineconsole --backend=curses Blockland.exe ptlaaxobimwroe -dedicated $@
 
