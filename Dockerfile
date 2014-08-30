@@ -1,8 +1,6 @@
 FROM ubuntu:13.10
 RUN dpkg --add-architecture i386
-RUN apt-get update
-RUN apt-get install -yy wine lib32ncurses5
-RUN apt-get install -yy python2.7 xvfb
+RUN apt-get update && apt-get install -y wine lib32ncurses5 python2.7 xvfb && apt-get clean
 
 ADD download.py /opt/blockland/download.py
 WORKDIR /opt/blockland
